@@ -1,0 +1,6 @@
+/.direnv/
+/.env
+/.idea/
+/ipython_log.py*
+/result*
+__pycache__/

@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "pod-consul-sidekick"
+version = "0.1.0"
+description = "Consul helper service for secondary clusters"
+authors = ["Derek Kulinski <derek.kulinski@teradata.com>"]
+license = "Proprietary"
+readme = "README.md"
+packages = [{include = "pod_consul_sidekick"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aioboto3 = "^10.1.0"
+pydantic = "^1.10.2"
+kubernetes = "^25.3.0"
+azure-identity = "1.13.0"
+cryptography = "40.0.2"
+azure-mgmt-resourcegraph = "^8.0.0"
+msal = "^1.22.0"
+requests = "^2.31.0"
+mypy = "*"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.10.1"
+black = "^22.10.0"
+ipython = "8.14.0"
+mypy = "*"
+types-aioboto3 = {version = "^9.6.0.post2", extras = ["resourcegroupstaggingapi"]}
+
+[tool.poetry.scripts]
+pod-consul-sidekick = "pod_consul_sidekick.main:cli"
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+src_paths = ["pod_consul_sidekick"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
